@@ -9,11 +9,11 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator   
+      <Stack.Navigator
         screenOptions={{
           headerShown: false
         }}>
-        <Stack.Screen name="Home" component={Selection} />
+        <Stack.Screen name="Home" component={InitialPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

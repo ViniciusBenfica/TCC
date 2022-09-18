@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TouchableOpacity  } from 'react-native';
+import SimpleButton from "./components/SimpleButton"
 
 export default function InitialPage() {
   return (
@@ -18,12 +19,8 @@ export default function InitialPage() {
         </View>
       </View>
       <View style={styles.viewContainer}>
-        <TouchableOpacity style={[styles.button, {backgroundColor: "#fff"}]}>
-          <Text style={{color: "black"}}>Já tenho uma conta</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, {backgroundColor: "#5FD189"}]}>
-          <Text style={{color: "#fff"}}>Criar cadastro</Text>
-        </TouchableOpacity>
+      <SimpleButton backgroundColor="#fff" colorText="black" content="Já tenho conta"/>
+      <SimpleButton content="Criar cadastro"/>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -54,12 +51,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: "80%",
     margin: "auto",
-  },
-  button: {
-    alignItems: 'center',
-    padding: 15,
-    width: "100%",
-    marginTop: 10,
-    borderRadius: 15,
   },
 });
