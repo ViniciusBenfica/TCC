@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import SimpleButton from "./components/SimpleButton"
+import { StyleSheet, Text, View } from 'react-native';
+import SimpleButton from "../components/SimpleButton"
+import Container from "../components/Container"
 
 export default function InitialPage() {
   return (
-    <View style={styles.container}>
+    <Container>
       <View style={styles.backgroundZeco}>
         <View style={styles.viewContainer}>
           <Text style={{ fontSize: 69, color: "#fff" }}>Zeco</Text>
@@ -23,19 +24,11 @@ export default function InitialPage() {
         <SimpleButton content="Criar cadastro" />
       </View>
       <StatusBar style="auto" />
-    </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: "#DCDCDC",
-  },
   backgroundZeco: {
     backgroundColor: "#5FD189",
     display: "flex",

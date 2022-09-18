@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import ButtonSubtitle from './components/ButtonSubtitle';
+import ButtonSubtitle from '../components/ButtonSubtitle';
+import Container from "../components/Container"
 
 export default function Selection() {
   return (
-    <View style={styles.container}>
+    <Container>
       <Text style={{ fontSize: 38, color: "#60D482" }}>Zeco</Text>
       <View style={styles.viewContainer}>
         <Text style={{ fontSize: 17, color: "#808080" }}>Que tipo de Zé é você</Text>
@@ -12,19 +13,11 @@ export default function Selection() {
         <ButtonSubtitle content="Produtor" subtitle="de resíduos" />
       </View>
       <Text style={{ fontSize: 17, color: "#60D482" }}>Já tenho uma conta</Text>
-    </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: "#DCDCDC",
-  },
   viewContainer: {
     alignItems: 'center',
     width: "80%",
