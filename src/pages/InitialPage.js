@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TouchableOpacity  } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import SimpleButton from "./components/SimpleButton"
 
 export default function InitialPage() {
@@ -7,11 +7,11 @@ export default function InitialPage() {
     <View style={styles.container}>
       <View style={styles.backgroundZeco}>
         <View style={styles.viewContainer}>
-          <Text style={{fontSize: 69, color: "#fff"}}>Zeco</Text>
-          <Text style={{fontSize: 18, color: "#fff", fontStyle: "italic"}}>Reciclar nunca foi tão simples</Text>
+          <Text style={{ fontSize: 69, color: "#fff" }}>Zeco</Text>
+          <Text style={{ fontSize: 18, color: "#fff", fontStyle: "italic" }}>Reciclar nunca foi tão simples</Text>
         </View>
         <View>
-          <Text style={{fontSize: 15, color: "#fff", textAlign: 'center'}}>
+          <Text style={{ fontSize: 15, color: "#fff", textAlign: 'center' }}>
             Zeco é um app pensado para conectar{"\n"}
             o Zé, que trabalha reciclando resíduos{"\n"}
             ao Zé que os produz.
@@ -19,8 +19,8 @@ export default function InitialPage() {
         </View>
       </View>
       <View style={styles.viewContainer}>
-      <SimpleButton backgroundColor="#fff" colorText="black" content="Já tenho conta"/>
-      <SimpleButton content="Criar cadastro"/>
+        <SimpleButton backgroundColor="#fff" colorText="black" content="Já tenho conta" />
+        <SimpleButton content="Criar cadastro" />
       </View>
       <StatusBar style="auto" />
     </View>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     borderBottomEndRadius: 30,
     borderBottomStartRadius: 30
   },
-  viewContainer:{
+  viewContainer: {
     alignItems: 'center',
     width: "80%",
     margin: "auto",

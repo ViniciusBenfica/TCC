@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function SimpleButton({content, backgroundColor, colorText}) {
+export default function SimpleButton({ content, backgroundColor, colorText }) {
   return (
-    <TouchableOpacity style={[styles.button, {backgroundColor: backgroundColor || "#5FD189"}]}>
-        <Text style={{color: colorText || "#fff"}}>{content}</Text>
+    <TouchableOpacity style={[styles.button, { backgroundColor: backgroundColor || "#5FD189" }]}>
+      <Text style={{ color: colorText || "#fff" }}>{content}</Text>
     </TouchableOpacity>
   );
 }
