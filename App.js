@@ -13,7 +13,7 @@ function App() {
         screenOptions={{
           headerShown: false
         }}>
-        <Stack.Screen name="Home" component={InitialPage} />
+        <Stack.Screen name="Home" component={Selection} />
       </Stack.Navigator>
     </NavigationContainer>
   );
