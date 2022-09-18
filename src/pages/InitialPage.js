@@ -19,10 +19,10 @@ export default function InitialPage() {
       </View>
       <View style={styles.viewContainer}>
         <TouchableOpacity style={[styles.button, {backgroundColor: "#fff"}]}>
-          <Text style={{color: "black"}}> Já tenho uma conta </Text>
+          <Text style={{color: "black"}}>Já tenho uma conta</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, {backgroundColor: "#5FD189"}]}>
-          <Text style={{color: "#fff"}}> Criar cadastro </Text>
+          <Text style={{color: "#fff"}}>Criar cadastro</Text>
         </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
