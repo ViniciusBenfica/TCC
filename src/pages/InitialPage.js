@@ -2,15 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import SimpleButton from "../components/SimpleButton"
 import Container from "../components/Container"
+import Body from '../components/Body';
 
 export default function InitialPage() {
   return (
     <Container>
       <View style={styles.backgroundZeco}>
-        <View style={styles.viewContainer}>
+        <Body>
           <Text style={{ fontSize: 69, color: "#fff" }}>Zeco</Text>
           <Text style={{ fontSize: 18, color: "#fff", fontStyle: "italic" }}>Reciclar nunca foi tão simples</Text>
-        </View>
+        </Body>
         <View>
           <Text style={{ fontSize: 15, color: "#fff", textAlign: 'center' }}>
             Zeco é um app pensado para conectar{"\n"}
@@ -19,10 +20,10 @@ export default function InitialPage() {
           </Text>
         </View>
       </View>
-      <View style={styles.viewContainer}>
+      <Body>
         <SimpleButton backgroundColor="#fff" colorText="black" content="Já tenho conta" />
         <SimpleButton content="Criar cadastro" />
-      </View>
+      </Body>
       <StatusBar style="auto" />
     </Container>
   );
@@ -39,10 +40,5 @@ const styles = StyleSheet.create({
     height: "70%",
     borderBottomEndRadius: 30,
     borderBottomStartRadius: 30
-  },
-  viewContainer: {
-    alignItems: 'center',
-    width: "80%",
-    margin: "auto",
   },
 });
