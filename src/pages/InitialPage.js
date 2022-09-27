@@ -3,8 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import SimpleButton from "../components/SimpleButton"
 import Container from "../components/Container"
 import Body from '../components/Body';
+import { useNavigation } from '@react-navigation/native';
 
 export default function InitialPage() {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <View style={styles.backgroundZeco}>
@@ -21,7 +24,7 @@ export default function InitialPage() {
         </View>
       </View>
       <Body>
-        <SimpleButton backgroundColor="#fff" colorText="black" content="Já tenho conta" />
+        <SimpleButton todo={() => navigation.navigate('Login')} backgroundColor="#fff" colorText="black" content="Já tenho conta" />
         <SimpleButton content="Criar cadastro" />
       </Body>
       <StatusBar style="auto" />
