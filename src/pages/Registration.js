@@ -5,16 +5,18 @@ import Container from '../components/Container';
 import Input from '../components/Input';
 import SimpleButton from '../components/SimpleButton';
 
-export default function Login() {
+export default function Registration() {
 
   return (
     <Container>
       <Text style={{fontSize: 38, color: "#60D482"}}>Zeco</Text>
-      <Text style={{fontSize: 17, color: "#808080"}}>Digite suas informações</Text>
+      <Text style={{fontSize: 17, color: "#808080"}}>Vamos começar seu cadastro.</Text>
       <Body>
+        <Input placeholder="Seu nome ou da empresa" title="Nome completo"/>
         <Input placeholder="Seu número ou e-mail" title="Celular ou e-mail"/>
+        <Input placeholder="Seu cpf" title="CPF ou CNPJ"/>
         <Input placeholder="*****" title="Senha"/>
-        <Text style={{fontSize: 17, color: "#60D482"}}>Esqueci minha senha</Text>
+        <Input placeholder="abcd1234" title="Repetir senha"/>
       </Body>
       <Body>
         <SimpleButton content="Confirmar"/>
