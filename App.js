@@ -5,6 +5,8 @@ import InitialPage from './src/pages/InitialPage';
 import Selection from './src/pages/Selecting';
 import Login from './src/pages/Login';
 import Registration from './src/pages/Registration';
+import Code from './src/pages/Code';
+import InitialMenu from './src/pages/InitialMenu';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +19,7 @@ function App() {
         }}
         initialRouteName="InitialPage"
         >
-        <Stack.Screen name="InitialPage" component={Registration} />
+        <Stack.Screen name="InitialPage" component={InitialMenu} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
