@@ -34,12 +34,12 @@ const styles = StyleSheet.create({
         // borderWidth: 1,
         padding: 5,
     },
-        inputArea:{
-        backgroundColor: "red",
-        width: "80%",
-        borderRadius: 20,
-        backgroundColor: "#fff",
-        height: 33,
-        // overflow: "hidden",
+    inputArea:{
+      backgroundColor: "red",
+      width: "80%",
+      borderRadius: 20,
+      backgroundColor: "#fff",
+      height: 33,
+      // overflow: "hidden",
     }
 });
