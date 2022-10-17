@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function ButtonSubtitle({ content, subtitle }) {
+export default function ButtonSubtitle({ content, subtitle, todo }) {
     return (
-        <TouchableOpacity style={[styles.button]}>
+        <TouchableOpacity onPress={todo} style={[styles.button]}>
             <Text style={{ fontSize: 45, color: "#fff" }}>{content}</Text>
             <Text style={{ fontSize: 16, color: "#fff" }}>{subtitle}</Text>
         </TouchableOpacity>
@@ -12,7 +12,7 @@ export default function ButtonSubtitle({ content, subtitle }) {
 const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
-        padding: 15,
+        padding: 10,
         width: "100%",
         marginTop: 10,
         borderRadius: 15,

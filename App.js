@@ -7,6 +7,8 @@ import Login from './src/pages/Login';
 import Registration from './src/pages/Registration';
 import Code from './src/pages/Code';
 import InitialMenu from './src/pages/InitialMenu';
+import OtherFindCollection from "./src/pages/OtherFindCollection"
+import FindCollection from "./src/pages/FindCollection"
 
 const Stack = createNativeStackNavigator();
 
@@ -19,8 +21,14 @@ function App() {
         }}
         initialRouteName="InitialPage"
         >
-        <Stack.Screen name="InitialPage" component={InitialMenu} />
+        <Stack.Screen name="InitialPage" component={InitialPage} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Registration" component={Registration} />
+        <Stack.Screen name="Code" component={Code} />
+        <Stack.Screen name="InitialMenu" component={InitialMenu} />
+        <Stack.Screen name="Selection" component={Selection} />
+        <Stack.Screen name="OtherFindCollection" component={OtherFindCollection} />
+        <Stack.Screen name="FindCollection" component={FindCollection} />
       </Stack.Navigator>
     </NavigationContainer>
   );

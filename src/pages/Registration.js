@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text } from 'react-native';
 import Body from '../components/Body';
@@ -6,6 +7,7 @@ import Input from '../components/Input';
 import SimpleButton from '../components/SimpleButton';
 
 export default function Registration() {
+  const navigation = useNavigation();
 
   return (
     <Container>
@@ -19,7 +21,7 @@ export default function Registration() {
         <Input placeholder="abcd1234" title="Repetir senha"/>
       </Body>
       <Body>
-        <SimpleButton content="Confirmar"/>
+        <SimpleButton todo={() => navigation.navigate('Code')} content="Confirmar"/>
       </Body>
     </Container>
   );

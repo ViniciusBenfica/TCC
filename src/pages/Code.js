@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
 import Body from '../components/Body';
@@ -5,12 +6,13 @@ import Container from '../components/Container';
 import SimpleButton from '../components/SimpleButton';
 
 export default function Code() {
+  const navigation = useNavigation();
 
   return (
     <Container>
       <Text style={{fontSize: 38, color: "#60D482"}}>Zeco</Text>
-      <Text style={{fontSize: 17, color: "#808080"}}>
-        Foi enviado um código para
+      <Text style={{fontSize: 17, color: "#808080", textAlign: 'center'}}>
+        Foi enviado um código para{'\n'}
         +55 98 9999-9999
       </Text>
       <Body>
@@ -61,7 +63,7 @@ export default function Code() {
         <Text style={{fontSize: 12, color: "#60D482", marginTop: 10}}>Enviar código novamente</Text>
       </Body>
       <Body>
-        <SimpleButton content="Confirmar"/>
+        <SimpleButton todo={() => navigation.navigate('InitialMenu')} content="Confirmar"/>
       </Body>
     </Container>
   );
@@ -70,18 +72,13 @@ export default function Code() {
 const styles = StyleSheet.create({
     input:{
         height: "100%",
-        // width: "16%",
         flex: 1,
-        // margin: 12,
-        // borderWidth: 1,
         padding: 5,
         textAlign: 'center',
-        // margin: 'auto',
         marginLeft: 10,
         backgroundColor: "#fff",
         borderRadius: 10,
         fontSize: 36,
-
     },
     inputArea:{
         display: 'flex',
