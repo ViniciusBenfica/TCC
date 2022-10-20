@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import ButtonSubtitle from '../components/ButtonSubtitle';
 
 export default function FindCollection() {
+  const navigation = useNavigation()
 
   return (
       <ScrollView>
@@ -20,7 +21,7 @@ export default function FindCollection() {
             <ButtonSubtitle content="Artista" subtitle="que reutiliza resíduos"/>
             <ButtonSubtitle content="Cooperativas" subtitle="de coletores"/>
           </Body>
-          <Text style={{fontSize: 17, color: "#808080", textAlign: 'center', margin: 30}}>Voltar</Text>
+          <Text onPress={() => {navigation.goBack()}} style={{fontSize: 17, color: "#808080", textAlign: 'center', margin: 30}}>Voltar</Text>
         </Container>
       </ScrollView>
   );
