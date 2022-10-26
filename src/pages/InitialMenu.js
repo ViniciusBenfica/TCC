@@ -5,10 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 import Container from "../components/Container"
 import Body from '../components/Body';
 import ButtonSubtitle from '../components/ButtonSubtitle';
-import Icon from "../assets/icon.svg"
+import Profile from "../assets/profile.svg"
+import Start from "../assets/start.svg"
+import { useState } from 'react';
 
 export default function InitialMenu() {
   const navigation = useNavigation();
+  const [selectOption, setSelectOption] = useState(false)
   
   return (
     <Container>
@@ -19,10 +22,10 @@ export default function InitialMenu() {
         <ButtonSubtitle todo={() => navigation.navigate('OtherFindCollection')} content="Buscar" subtitle="pontos de coleta"/>
         <ButtonSubtitle todo={() => navigation.navigate('Mapa')} content="Cadastrar" subtitle="pontos de reciclagem para coleta"/>
       </Body>
-      <View style={[styles.menu]}>
-        {/* <Text>Inicio</Text> */}
-        <Icon fill="#4BC35F" width={70} height={70}/>
-        <Text>Perfil</Text>
+      <View style={styles.menu}>
+        <Profile onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/>
+        <View style={styles.line}></View>
+        <Start onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/>
       </View>
     </Container>
   );
@@ -31,8 +34,16 @@ export default function InitialMenu() {
 const styles = StyleSheet.create({
   menu: {
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     padding: 10,
     width: "100%",
     backgroundColor: "#EAEAEA",
   },
+  line:{
+    height: '80%',
+    width: 1,
+    backgroundColor: '#707070'
+  }
 });
