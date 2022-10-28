@@ -19,7 +19,7 @@ export default function InitialMenu() {
       <Text style={{fontSize: 17, color: "#808080"}}>O que você precisa?</Text>
       <Body>
         <ButtonSubtitle todo={() => navigation.navigate('FindCollection')} content="Solicitar" subtitle="serviço de coleta"/>
-        <ButtonSubtitle todo={() => navigation.navigate('OtherFindCollection')} content="Buscar" subtitle="pontos de coleta"/>
+        <ButtonSubtitle todo={() => navigation.navigate('Map')} content="Buscar" subtitle="pontos de coleta"/>
         <ButtonSubtitle todo={() => navigation.navigate('Mapa')} content="Cadastrar" subtitle="pontos de reciclagem para coleta"/>
       </Body>
       <View style={styles.menu}>
