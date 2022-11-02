@@ -3,7 +3,8 @@ import { StyleSheet, View, Text, SafeAreaView, FlatList, TouchableOpacity, Image
 import MapView, { Marker } from 'react-native-maps';
 import Profile from "../assets/profile.svg"
 
-export default function Map() {
+export default function MapFind() {
+
     const [data, setData] = useState([
         { key: 'Vidros', label: 'Vidros', image: Profile },
         { key: 'Papel', label: 'Papel', image: Profile },
@@ -34,6 +35,7 @@ export default function Map() {
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                 }}
+                onRegionChangeComplete={(region) => setRegion(region)}
             >
                 {(filter ? filteredData : coordinate).map((item, index) => (
                     <Marker
