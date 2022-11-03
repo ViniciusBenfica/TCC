@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function Input({ title, placeholder, setDataUser, name, type }) {
+export default function Input({ title, placeholder, setData, name, type }) {
 
     return (
         <View style={styles.body}>
@@ -9,7 +9,7 @@ export default function Input({ title, placeholder, setDataUser, name, type }) {
           <SafeAreaView style={styles.inputArea}>
             <TextInput
               style={styles.input}
-              onChangeText={newText => setDataUser((prev) => ({...prev, [name]: newText}))}
+              onChangeText={newText => setData((prev) => ({...prev, [name]: newText}))}
               placeholder={placeholder}
               keyboardType={type}
             />
