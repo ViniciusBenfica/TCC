@@ -1,18 +1,38 @@
-import { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { TextInputMask } from 'react-native-masked-text'
+export default function Input({ title, placeholder, setData, name, type, secureTextEntry }) {
 
-export default function Input({ title, placeholder, setData, name, type }) {
+  function maskCPF(name){
+    if(name === 'cpf'){
+      return (
+      <TextInputMask
+        type={'cpf'}
+        secureTextEntry={secureTextEntry}
+        style={styles.input}
+        onChangeText={newText => setData((prev) => ({...prev, [name]: newText}))}
+        placeholder={placeholder}
+        keyboardType={type}
+      />
+      )
+    }else{
+      return (
+        <TextInput
+          secureTextEntry={secureTextEntry}
+          style={styles.input}
+          onChangeText={newText => setData((prev) => ({...prev, [name]: newText}))}
+          placeholder={placeholder}
+          keyboardType={type}
+        />
+      )
+    }
+  }
+
 
     return (
         <View style={styles.body}>
           <Text style={{fontSize: 14, color: "#808080"}}>{title}</Text>
           <SafeAreaView style={styles.inputArea}>
-            <TextInput
-              style={styles.input}
-              onChangeText={newText => setData((prev) => ({...prev, [name]: newText}))}
-              placeholder={placeholder}
-              keyboardType={type}
-            />
+          {maskCPF(name)}
           </SafeAreaView>
         </View>
     );

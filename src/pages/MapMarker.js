@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Profile from "../assets/profile.svg"
-import axios from 'axios'
+import { api } from '../services/Api';
+
 import { UserContext } from "../providers/UserContext"
 
 export default function MapMarker() {
     const { user } = useContext(UserContext)
+    const [select, setSelect] = useState()
     const [region, setRegion] = useState({
         latitude: 51.5079145,
         longitude: -0.0899163,
@@ -21,11 +23,8 @@ export default function MapMarker() {
         { key: 'Metal', label: 'Metal', image: Profile },
     ])
 
-    const [select, setSelect] = useState()
-
-    console.log(user)
       const register = async () => {
-        const {data} = await axios.post('http://192.168.3.125:3333/local',
+        const {data} = await api.post('/local',
             {
                 latitude: region.latitude,
                 longitude: region.longitude,

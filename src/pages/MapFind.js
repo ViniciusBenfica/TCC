@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Profile from "../assets/profile.svg"
+import { api } from '../services/Api';
 
 export default function MapFind() {
 
@@ -14,28 +15,29 @@ export default function MapFind() {
 
     const [filter, setFilter] = useState('')
 
-    const [coordinate, setCoordinate] = useState([
-        { latitude: 5, longitude: 5, key: 'Vidros' },
-        { latitude: 10, longitude: 10, key: 'Papel' },
-        { latitude: 12, longitude: 12, key: 'Papel' },
-        { latitude: 20, longitude: 20, key: 'Plástico' },
-        { latitude: 20, longitude: 20, key: 'Metal' },
-    ])
+    const [coordinate, setCoordinate] = useState([])
 
-    const filteredData = coordinate.filter(m => m.key === filter)
+    const filteredData = coordinate.filter(m => m.tipoLixo === filter)
+
+    useEffect(() => {
+        const getLocate = async () => {
+            const {data} = await api.get('/local')
+            setCoordinate(data)
+        }
+        getLocate()
+    },[])
 
     return (
         <SafeAreaView style={styles.container}>
             <Text>ZECO</Text>
             <MapView
                 style={styles.map}
-                initialRegion={{
+                /* initialRegion={{
                     latitude: coordinate[1].latitude,
                     longitude: coordinate[1].longitude,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
-                }}
-                onRegionChangeComplete={(region) => setRegion(region)}
+                }} */
             >
                 {(filter ? filteredData : coordinate).map((item, index) => (
                     <Marker
