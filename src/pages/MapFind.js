@@ -4,13 +4,18 @@ import MapView, { Marker } from 'react-native-maps';
 import Profile from "../assets/profile.svg"
 import { api } from '../services/Api';
 
+import Document from '../assets/document.png';
+import Glass from '../assets/glass.png';
+import Metal from '../assets/metal.png';
+import Plastic from '../assets/plastic.png';
+
 export default function MapFind() {
 
     const [data, setData] = useState([
-        { key: 'Vidros', label: 'Vidros', image: Profile },
-        { key: 'Papel', label: 'Papel', image: Profile },
-        { key: 'Plástico', label: 'Plástico', image: Profile },
-        { key: 'Metal', label: 'Metal', image: Profile },
+        { key: 'Vidros', label: 'Vidros', image: Glass },
+        { key: 'Papel', label: 'Papel', image: Document },
+        { key: 'Plástico', label: 'Plástico', image: Plastic },
+        { key: 'Metal', label: 'Metal', image: Metal },
     ])
 
     const [filter, setFilter] = useState('')
@@ -18,6 +23,7 @@ export default function MapFind() {
     const [coordinate, setCoordinate] = useState([])
 
     const filteredData = coordinate.filter(m => m.tipoLixo === filter)
+
 
     useEffect(() => {
         const getLocate = async () => {
@@ -47,6 +53,7 @@ export default function MapFind() {
                             latitude: item.latitude,
                             longitude: item.longitude,
                         }}
+                        pinColor="green"
                     // onPress={() => {}} navigate
                     />
                 ))}
@@ -65,7 +72,10 @@ export default function MapFind() {
                             style={[styles.categoryItem, filter == item.key ? styles.selectedCategory : null]}
                             onPress={() => setFilter(filter === item.key ? "" : item.key )}
                         >
-                            <Profile width={70} height={70} fill="#4BC35F" />
+                             <Image
+                                source={item.image}
+                                style={{ width: 30, height: 30, marginBottom: 5 }}
+                            />
                             <Text>{item.label}</Text>
                         </TouchableOpacity>
                     )}
@@ -84,11 +94,12 @@ const styles = StyleSheet.create({
     },
     categoryContainer: {
         padding: 10,
+        backgroundColor: '#DCDCDC',
     },
     categoryItem: {
-        height: 110,
-        backgroundColor: 'red',
-        width: 100,
+        height: 90,
+        width: 90,
+        backgroundColor: '#5FD189',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
@@ -98,6 +109,6 @@ const styles = StyleSheet.create({
         height: 50,
     },
     selectedCategory:{
-        backgroundColor: 'black',
+        backgroundColor: '#5C7A67',
     }
 });

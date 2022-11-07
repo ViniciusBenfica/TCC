@@ -31,7 +31,7 @@ export default function Login() {
       <Text style={{fontSize: 38, color: "#60D482"}}>Zeco</Text>
       <Text style={{fontSize: 17, color: "#808080"}}>Digite suas informações</Text>
       <Body>
-        <Input setData={setDataUser} type='text' name="cpf" placeholder="Seu cpf" title="CPf"/>
+        <Input setData={setDataUser} type='numeric' name="cpf" placeholder="Seu cpf" title="CPf"/>
         <Input setData={setDataUser} secureTextEntry={true} type='password' name="password" placeholder="*****" title="Senha"/>
         <Text style={{fontSize: 17, color: "#60D482"}}>Esqueci minha senha</Text>
       </Body>

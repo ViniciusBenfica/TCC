@@ -1,30 +1,34 @@
 import { useContext, useEffect, useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import Profile from "../assets/profile.svg"
 import { api } from '../services/Api';
+import Document from '../assets/document.png';
+import Glass from '../assets/glass.png';
+import Metal from '../assets/metal.png';
+import Plastic from '../assets/plastic.png';
 
 import { UserContext } from "../providers/UserContext"
 
 export default function MapMarker() {
     const { user } = useContext(UserContext)
     const [select, setSelect] = useState()
+
     const [region, setRegion] = useState({
         latitude: 51.5079145,
         longitude: -0.0899163,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
-      });
+    });
 
     const [data, setData] = useState([
-        { key: 'Vidro', label: 'Vidros', image: Profile },
-        { key: 'Papel', label: 'Papel', image: Profile },
-        { key: 'Plástico', label: 'Plástico', image: Profile },
-        { key: 'Metal', label: 'Metal', image: Profile },
+        { key: 'Vidros', label: 'Vidros', image: Glass },
+        { key: 'Papel', label: 'Papel', image: Document },
+        { key: 'Plástico', label: 'Plástico', image: Plastic },
+        { key: 'Metal', label: 'Metal', image: Metal },
     ])
 
-      const register = async () => {
-        const {data} = await api.post('/local',
+    const register = async () => {
+        const { data } = await api.post('/local',
             {
                 latitude: region.latitude,
                 longitude: region.longitude,
@@ -33,14 +37,12 @@ export default function MapMarker() {
             }
         )
         console.log(data)
-      }
+    }
 
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.marker} onPress={() => register()}><Text>MARCAR LOCAL</Text></TouchableOpacity>
             <Text>ZECO</Text>
-            {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-            <Text style={styles.text}>Current longitude: {region.longitude}</Text> */}
             <MapView
                 style={styles.map}
                 /* initialRegion={{
@@ -49,15 +51,13 @@ export default function MapMarker() {
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                 }} */
-                onRegionChangeComplete={(region) => setRegion(region)}
-            >
+                onRegionChangeComplete={(region) => setRegion(region)}>
                 <Marker
-                    // key={item.key}
                     coordinate={{
                         latitude: region.latitude,
                         longitude: region.longitude,
                     }}
-                // onPress={() => {}} navigate
+                    pinColor="green"
                 />
             </MapView>
             <View style={styles.categoryContainer}>
@@ -70,11 +70,13 @@ export default function MapMarker() {
                         alignItems: 'center'
                     }}
                     renderItem={({ item }) => (
-                        <TouchableOpacity 
+                        <TouchableOpacity
                             style={[styles.categoryItem, select == item.key ? styles.selectedCategory : null]}
-                            onPress={() => setSelect(select === item.key ? "" : item.key )}
-                        >
-                            <Profile width={70} height={70} fill="#4BC35F" />
+                            onPress={() => setSelect(select === item.key ? "" : item.key)}>
+                            <Image
+                                source={item.image}
+                                style={{ width: 30, height: 30, marginBottom: 5 }}
+                            />
                             <Text>{item.label}</Text>
                         </TouchableOpacity>
                     )}
@@ -91,37 +93,45 @@ const styles = StyleSheet.create({
     map: {
         flex: 1,
     },
-    marker:{
+    marker: {
         height: 30,
-        backgroundColor: 'red',
-        width: 130,
+        backgroundColor: '#5FD189',
+        width: 150,
         position: 'absolute',
-        inset: 0,
-        top: '10%',
+        bottom: 130,
         right: '50%',
+        margin: 'auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 15,
+        
         zIndex: 50000,
         transform: [
-            { translateX: 50  },
-            { translateY: -50 }
+            { translateX: 65 },
         ],
-    },
-    categoryContainer: {
-        padding: 10,
-    },
-
-    categoryItem: {
-        height: 110,
-        backgroundColor: 'red',
-        width: 100,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
     },
     categoryImage: {
         width: 50,
         height: 50,
     },
-    selectedCategory:{
+    selectedCategory: {
         backgroundColor: 'black',
-    }
+    },
+
+    categoryContainer: {
+        padding: 10,
+        backgroundColor: '#DCDCDC',
+    },
+    categoryItem: {
+        height: 90,
+        width: 90,
+        backgroundColor: '#5FD189',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    selectedCategory: {
+        backgroundColor: '#5C7A67',
+    },
 });

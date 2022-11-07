@@ -1,5 +1,6 @@
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text'
+
 export default function Input({ title, placeholder, setData, name, type, secureTextEntry }) {
 
   function maskCPF(name){
@@ -26,7 +27,6 @@ export default function Input({ title, placeholder, setData, name, type, secureT
       )
     }
   }
-
 
     return (
         <View style={styles.body}>
