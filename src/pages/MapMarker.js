@@ -8,10 +8,12 @@ import Metal from '../assets/metal.png';
 import Plastic from '../assets/plastic.png';
 
 import { UserContext } from "../providers/UserContext"
+import { useNavigation } from '@react-navigation/native';
 
 export default function MapMarker() {
     const { user } = useContext(UserContext)
     const [select, setSelect] = useState()
+    const navigation = useNavigation();
 
     const [region, setRegion] = useState({
         latitude: 51.5079145,
@@ -36,6 +38,8 @@ export default function MapMarker() {
                 produtorId: user.produtorId
             }
         )
+        navigation.navigate('MarkerSchedules', { Id: user.produtorId } )
+
         console.log(data)
     }
 

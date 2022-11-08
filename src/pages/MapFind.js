@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import Profile from "../assets/profile.svg"
 import { api } from '../services/Api';
+import { useNavigation } from '@react-navigation/native';
 
 import Document from '../assets/document.png';
 import Glass from '../assets/glass.png';
@@ -17,13 +17,10 @@ export default function MapFind() {
         { key: 'Plástico', label: 'Plástico', image: Plastic },
         { key: 'Metal', label: 'Metal', image: Metal },
     ])
-
     const [filter, setFilter] = useState('')
-
+    const navigation = useNavigation();
     const [coordinate, setCoordinate] = useState([])
-
     const filteredData = coordinate.filter(m => m.tipoLixo === filter)
-
 
     useEffect(() => {
         const getLocate = async () => {
@@ -54,7 +51,7 @@ export default function MapFind() {
                             longitude: item.longitude,
                         }}
                         pinColor="green"
-                    // onPress={() => {}} navigate
+                        onPress={() => navigation.navigate('Schedules', { item } )}
                     />
                 ))}
             </MapView>

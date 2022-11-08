@@ -7,12 +7,12 @@ import Login from './src/pages/Login';
 import Registration from './src/pages/Registration';
 import Code from './src/pages/Code';
 import InitialMenu from './src/pages/InitialMenu';
-import OtherFindCollection from "./src/pages/OtherFindCollection"
-import FindCollection from "./src/pages/FindCollection"
 import MapFind from "./src/pages/MapFind"
 import MapMarker from "./src/pages/MapMarker"
-import { UserProvider } from "./src/providers/UserContext"
+import Schedules from "./src/pages/Schedules"
+import MarkerSchedules from "./src/pages/MarkerSchedules"
 
+import { UserProvider } from "./src/providers/UserContext"
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -31,10 +31,10 @@ function App() {
           <Stack.Screen name="Code" component={Code} />
           <Stack.Screen name="InitialMenu" component={InitialMenu} />
           <Stack.Screen name="Selection" component={Selection} />
-          <Stack.Screen name="OtherFindCollection" component={OtherFindCollection} />
-          <Stack.Screen name="FindCollection" component={FindCollection} />
           <Stack.Screen name="MapFind" component={MapFind} />
           <Stack.Screen name="MapMarker" component={MapMarker} />
+          <Stack.Screen name="Schedules" component={Schedules} />
+          <Stack.Screen name="MarkerSchedules" component={MarkerSchedules} />
         </Stack.Navigator>
       </UserProvider>
     </NavigationContainer>
