@@ -1,7 +1,20 @@
+import { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text'
 
 export default function Input({ title, placeholder, setData, name, type, secureTextEntry }) {
+
+  const [error, setError] = useState(false)
+
+  const validateEmail = (text) => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    reg.test(text) ? setError(false) : setError(true)
+  }
+
+  const validateCpf = (text) => {
+    let reg = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+    reg.test(text) ? setError(false) : setError(true)
+  }
 
   function maskCPF(name){
     if(name === 'cpf'){
@@ -10,10 +23,20 @@ export default function Input({ title, placeholder, setData, name, type, secureT
         type={'cpf'}
         secureTextEntry={secureTextEntry}
         style={styles.input}
-        onChangeText={newText => setData((prev) => ({...prev, [name]: newText}))}
+        onChangeText={newText => setData((prev) => ({...prev, [name]: validateCpf(newText)}))}
         placeholder={placeholder}
         keyboardType={type}
       />
+      )
+    }else if(name === 'email'){
+      return (
+        <TextInput
+          secureTextEntry={secureTextEntry}
+          style={styles.input}
+          onChangeText={newText => setData((prev) => ({...prev, [name]: validateEmail(newText)}))}
+          placeholder={placeholder}
+          keyboardType={type}
+        />
       )
     }else{
       return (
@@ -31,7 +54,7 @@ export default function Input({ title, placeholder, setData, name, type, secureT
     return (
         <View style={styles.body}>
           <Text style={{fontSize: 14, color: "#808080"}}>{title}</Text>
-          <SafeAreaView style={styles.inputArea}>
+          <SafeAreaView style={[styles.inputArea, error ? styles.error : null]}>
           {maskCPF(name)}
           </SafeAreaView>
         </View>
@@ -48,9 +71,11 @@ const styles = StyleSheet.create({
     input: {
         height: "100%",
         width: "100%",
-        // margin: 12,
-        // borderWidth: 1,
         padding: 5,
+    },
+    error:{
+      borderColor: 'red',
+      borderWidth: 1,
     },
     inputArea:{
       backgroundColor: "red",
@@ -58,6 +83,5 @@ const styles = StyleSheet.create({
       borderRadius: 20,
       backgroundColor: "#fff",
       height: 33,
-      // overflow: "hidden",
     }
 });
