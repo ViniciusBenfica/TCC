@@ -38,9 +38,7 @@ export default function MapMarker() {
                 produtorId: user.produtorId
             }
         )
-        navigation.navigate('MarkerSchedules', { Id: user.produtorId } )
-
-        console.log(data)
+        navigation.navigate('MarkerSchedules', { Id: data.id } )
     }
 
     return (

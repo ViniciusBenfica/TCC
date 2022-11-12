@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     container: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         flex: 1,
         alignItems: 'center',
         backgroundColor: "#DCDCDC",

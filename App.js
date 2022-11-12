@@ -23,7 +23,7 @@ function App() {
           screenOptions={{
             headerShown: false
           }}
-          initialRouteName="InitialPage"
+          initialRouteName="Schedules"
           >
           <Stack.Screen name="InitialPage" component={InitialPage} />
           <Stack.Screen name="Login" component={Login} />

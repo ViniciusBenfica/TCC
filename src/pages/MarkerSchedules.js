@@ -1,38 +1,38 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Input from '../components/Input';
 import Container from "../components/Container"
 import SimpleButton from '../components/SimpleButton';
 import { api } from '../services/Api';
 import Body from '../components/Body';
-import { UserContext } from "../providers/UserContext"
 
-export default function MarkerSchedules({ navigation, route }) {
+export default function MarkerSchedules({ route }) {
 
-  const { user } = useContext(UserContext)
   const [inputInicio, setInputInicio] = useState()
   const [inputFim, setInputFim] = useState()
   const [dataTime, setDataTime] = useState({
-    'segunda': {open: false, inicio: '12:00', fim: '00:00'},
-    'terca': {open: false, inicio: '12:00', fim: '00:00'},
-    'quarta': {open: false, inicio: '12:00', fim: '00:00'},
-    'quinta': {open: false, inicio: '12:00', fim: '00:00'},
-    'sexta': {open: false, inicio: '12:00', fim: '00:00'},
-    'sabado': {open: false, inicio: '12:00', fim: '00:00'},
-    'domingo': {open: false, inicio: '12:00', fim: '00:00'},
+    'segunda': {open: false, inicio: '', fim: ''},
+    'terca': {open: false, inicio: '', fim: ''},
+    'quarta': {open: false, inicio: '', fim: ''},
+    'quinta': {open: false, inicio: '', fim: ''},
+    'sexta': {open: false, inicio: '', fim: ''},
+    'sabado': {open: false, inicio: '', fim: ''},
+    'domingo': {open: false, inicio: '', fim: ''},
   })
 
-const register = async () => {
-  setDataTime({...dataTime, ['segunda']: {...dataTime['segunda'], inicio: inputInicio, fim: inputFim}})
-  setDataTime({...dataTime, ['terca']: {...dataTime['terca'], inicio: inputInicio, fim: inputFim}})
-  setDataTime({...dataTime, ['quarta']: {...dataTime['quarta'], inicio: inputInicio, fim: inputFim}})
-  setDataTime({...dataTime, ['quinta']: {...dataTime['quinta'], inicio: inputInicio, fim: inputFim}})
-  setDataTime({...dataTime, ['sexta']: {...dataTime['sexta'], inicio: inputInicio, fim: inputFim}})
-  setDataTime({...dataTime, ['sabado']: {...dataTime['sabado'], inicio: inputInicio, fim: inputFim}})
-  setDataTime({...dataTime, ['domingo']: {...dataTime['domingo'], inicio: inputInicio, fim: inputFim}})
 
-  const {data} = await api.post('/schedules', {time: dataTime, produtorId: user.produtorId})
-  console.log(data)
+const register = async () => {
+  var times = {
+    'segunda': {...dataTime['segunda'], inicio: inputInicio, fim: inputFim},
+    'terca': {...dataTime['terca'], inicio: inputInicio, fim: inputFim},
+    'quarta': {...dataTime['quarta'], inicio: inputInicio, fim: inputFim},
+    'quinta': {...dataTime['quinta'], inicio: inputInicio, fim: inputFim},
+    'sexta': {...dataTime['sexta'], inicio: inputInicio, fim: inputFim},
+    'sabado': {...dataTime['sabado'], inicio: inputInicio, fim: inputFim},
+    'domingo': {...dataTime['domingo'], inicio: inputInicio, fim: inputFim}
+  }
+
+  const {data} = await api.post('/schedules', {time: times, localId: route.params.Id})
+  
 }
 
   return (
@@ -79,15 +79,16 @@ const register = async () => {
           </TouchableOpacity>
         </View>
       </Body>
-      <Text style={{fontSize: 17, color: "#808080"}}>Periodo de coleta</Text>
 
       <Body>
+        <Text style={{fontSize: 17, color: "#808080"}}>Periodo de coleta</Text>
         <View style={styles.hour}>
           <TextInput
             style={styles.input}
             keyboardType={'numeric'}
             onChangeText={newText => setInputInicio(newText)}
           />
+          
           <TextInput
             style={styles.input}
             keyboardType={'numeric'}
@@ -109,7 +110,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: 'red',
   },
   day:{
     width: 30,

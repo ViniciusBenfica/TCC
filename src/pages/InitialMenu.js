@@ -24,7 +24,6 @@ export default function InitialMenu() {
         {user.produtorId &&
           <ButtonSubtitle todo={() => navigation.navigate('MapMarker')} content="Cadastrar" subtitle="pontos de reciclagem para coleta"/>
         }
-        
       </Body>
       <View style={styles.menu}>
         <Profile onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/>
@@ -44,10 +43,12 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "100%",
     backgroundColor: "#EAEAEA",
+    marginBottom: -35,
   },
   line:{
     height: '80%',
     width: 1,
     backgroundColor: '#707070'
   },
+ 
 });
