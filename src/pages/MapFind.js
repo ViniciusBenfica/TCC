@@ -32,7 +32,7 @@ export default function MapFind() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text>ZECO</Text>
+            <Text style={{ fontSize: 38, color: "#60D482", textAlign: 'center', backgroundColor: '#DCDCDC' }}>Zeco</Text>
             <MapView
                 style={styles.map}
                 /* initialRegion={{

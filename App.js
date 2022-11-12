@@ -5,7 +5,6 @@ import InitialPage from './src/pages/InitialPage';
 import Selection from './src/pages/Selecting';
 import Login from './src/pages/Login';
 import Registration from './src/pages/Registration';
-import Code from './src/pages/Code';
 import InitialMenu from './src/pages/InitialMenu';
 import MapFind from "./src/pages/MapFind"
 import MapMarker from "./src/pages/MapMarker"
@@ -23,12 +22,11 @@ function App() {
           screenOptions={{
             headerShown: false
           }}
-          initialRouteName="Schedules"
+          initialRouteName="InitialPage"
           >
           <Stack.Screen name="InitialPage" component={InitialPage} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Registration" component={Registration} />
-          <Stack.Screen name="Code" component={Code} />
           <Stack.Screen name="InitialMenu" component={InitialMenu} />
           <Stack.Screen name="Selection" component={Selection} />
           <Stack.Screen name="MapFind" component={MapFind} />

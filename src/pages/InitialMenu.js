@@ -1,6 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import SimpleButton from "../components/SimpleButton"
 import { useNavigation } from '@react-navigation/native';
 import Container from "../components/Container"
 import Body from '../components/Body';

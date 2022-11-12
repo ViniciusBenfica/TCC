@@ -5,7 +5,7 @@ import Body from '../components/Body';
 import Container from '../components/Container';
 import Input from '../components/Input';
 import SimpleButton from '../components/SimpleButton';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from "../providers/UserContext"
 import { api } from '../services/Api';
 
@@ -26,7 +26,7 @@ export default function Registration() {
     const {data, status} = await api.post('/user', dataUser)
     if(status == 201){
       data.produtor ? setUser({id:data.id, name: data.name, produtorId: data.produtor.id}) : setUser({id:data.id, name: data.name})
-      navigation.navigate('Code')
+      navigation.navigate('InitialMenu')
     }
   }
 

@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text } from 'react-native';
 import Body from '../components/Body';
 import Container from '../components/Container';
@@ -22,7 +21,7 @@ export default function Login() {
     const {data, status} = await api.post('/user/login', dataUser)
     if(status == 201){
       data.produtor ? setUser({id:data.id, name: data.name, produtorId: data.produtor.id}) : setUser({id:data.id, name: data.name})
-      navigation.navigate('Code')
+      navigation.navigate('InitialMenu')
     }
   }
 
@@ -33,7 +32,6 @@ export default function Login() {
       <Body>
         <Input setData={setDataUser} type='numeric' name="cpf" placeholder="Seu cpf" title="CPf"/>
         <Input setData={setDataUser} secureTextEntry={true} type='password' name="password" placeholder="*****" title="Senha"/>
-        <Text style={{fontSize: 17, color: "#60D482"}}>Esqueci minha senha</Text>
       </Body>
       <Body>
         <SimpleButton todo={login} content="Confirmar"/>

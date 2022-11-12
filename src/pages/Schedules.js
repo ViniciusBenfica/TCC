@@ -18,7 +18,7 @@ export default function MarkerSchedules({ route }) {
 
   useEffect(() => {
       const getLocate = async () => {
-          const {data} = await api.get(`/schedules?id=1`)
+          const {data} = await api.get(`/schedules?id=${route.params.item.id}`)
           setDataTime(data.time)
       }
       getLocate()

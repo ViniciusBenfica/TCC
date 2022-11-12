@@ -27,7 +27,6 @@ export default function InitialPage() {
         <SimpleButton todo={() => navigation.navigate('Login')} backgroundColor="#fff" colorText="black" content="Já tenho conta" />
         <SimpleButton todo={() => navigation.navigate('Selection')} content="Criar cadastro" />
       </Body>
-      <StatusBar style="auto" />
     </Container>
   );
 }
