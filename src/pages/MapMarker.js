@@ -44,15 +44,15 @@ export default function MapMarker() {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.marker} onPress={() => register()}><Text>MARCAR LOCAL</Text></TouchableOpacity>
-            <Text>ZECO</Text>
+            {/* <Text>ZECO</Text> */}
             <MapView
                 style={styles.map}
-                /* initialRegion={{
-                    latitude: coordinate[1].latitude,
-                    longitude: coordinate[1].longitude,
+                initialRegion={{
+                    latitude: -20.337818,
+                    longitude: -40.300499,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
-                }} */
+                }}
                 onRegionChangeComplete={(region) => setRegion(region)}>
                 <Marker
                     coordinate={{
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         width: 150,
         position: 'absolute',
         bottom: 130,
-        right: '50%',
+        right: '45%',
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',

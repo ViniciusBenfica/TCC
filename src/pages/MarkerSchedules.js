@@ -4,9 +4,10 @@ import Container from "../components/Container"
 import SimpleButton from '../components/SimpleButton';
 import { api } from '../services/Api';
 import Body from '../components/Body';
+import { useNavigation } from '@react-navigation/native';
 
 export default function MarkerSchedules({ route }) {
-
+  const navigation = useNavigation();
   const [inputInicio, setInputInicio] = useState()
   const [inputFim, setInputFim] = useState()
   const [dataTime, setDataTime] = useState({
@@ -32,7 +33,7 @@ const register = async () => {
   }
 
   const {data} = await api.post('/schedules', {time: times, localId: route.params.Id})
-  
+  navigation.navigate('InitialMenu')
 }
 
   return (

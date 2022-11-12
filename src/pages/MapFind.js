@@ -32,15 +32,15 @@ export default function MapFind() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={{ fontSize: 38, color: "#60D482", textAlign: 'center', backgroundColor: '#DCDCDC' }}>Zeco</Text>
+            {/* <Text style={{ fontSize: 38, color: "#60D482", textAlign: 'center', backgroundColor: '#DCDCDC' }}>Zeco</Text> */}
             <MapView
                 style={styles.map}
-                /* initialRegion={{
-                    latitude: coordinate[1].latitude,
-                    longitude: coordinate[1].longitude,
+                initialRegion={{
+                    latitude: -20.337818,
+                    longitude: -40.300499,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
-                }} */
+                }}
             >
                 {(filter ? filteredData : coordinate).map((item, index) => (
                     <Marker

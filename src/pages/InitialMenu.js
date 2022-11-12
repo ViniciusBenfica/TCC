@@ -24,9 +24,9 @@ export default function InitialMenu() {
         }
       </Body>
       <View style={styles.menu}>
-        <Profile onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/>
+       {/*  <Profile onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/>
         <View style={styles.line}></View>
-        <Start onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/>
+        <Start onPress={() => setSelectOption(!selectOption)} fill={selectOption ? "#4BC35F" : '#808080'} width={70} height={70}/> */}
       </View>
     </Container>
   );

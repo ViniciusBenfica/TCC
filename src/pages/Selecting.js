@@ -15,7 +15,8 @@ export default function Selection() {
         <ButtonSubtitle todo={() => navigation.navigate('Registration', 'coletor')} content="Coletor" subtitle="de resíduos" />
         <ButtonSubtitle todo={() => navigation.navigate('Registration', 'produtor')} content="Produtor" subtitle="de resíduos" />
       </Body>
-      <Text style={{ fontSize: 17, color: "#60D482" }}>Já tenho uma conta</Text>
+      {/* <Text style={{ fontSize: 17, color: "#60D482" }}>Já tenho uma conta</Text> */}
+      <Text style={{ fontSize: 17, color: "#60D482" }}></Text>
     </Container>
   );
 }
