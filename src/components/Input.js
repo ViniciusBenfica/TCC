@@ -9,11 +9,13 @@ export default function Input({ title, placeholder, setData, name, type, secureT
   const validateEmail = (text) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     reg.test(text) ? setError(false) : setError(true)
+    return text
   }
 
   const validateCpf = (text) => {
     let reg = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
     reg.test(text) ? setError(false) : setError(true)
+    return text
   }
 
   function maskCPF(name){
