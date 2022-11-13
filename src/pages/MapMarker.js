@@ -16,8 +16,8 @@ export default function MapMarker() {
     const navigation = useNavigation();
 
     const [region, setRegion] = useState({
-        latitude: 51.5079145,
-        longitude: -0.0899163,
+        latitude: -20.337818,
+        longitude: -40.300499,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
     });
@@ -43,8 +43,7 @@ export default function MapMarker() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity style={styles.marker} onPress={() => register()}><Text>MARCAR LOCAL</Text></TouchableOpacity>
-            {/* <Text>ZECO</Text> */}
+            <TouchableOpacity style={styles.marker} onPress={() => register()}><Text style={{ color: "#fff" }}>MARCAR LOCAL</Text></TouchableOpacity>
             <MapView
                 style={styles.map}
                 initialRegion={{
@@ -117,10 +116,6 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
     },
-    selectedCategory: {
-        backgroundColor: 'black',
-    },
-
     categoryContainer: {
         padding: 10,
         backgroundColor: '#DCDCDC',
