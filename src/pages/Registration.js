@@ -1,6 +1,5 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, Alert } from 'react-native';
 import Body from '../components/Body';
 import Container from '../components/Container';
 import Input from '../components/Input';
@@ -23,10 +22,15 @@ export default function Registration() {
   })
 
   const register = async () => {
-    const {data, status} = await api.post('/user', dataUser)
-    if(status == 201){
-      data.produtor ? setUser({id:data.id, name: data.name, produtorId: data.produtor.id}) : setUser({id:data.id, name: data.name})
-      navigation.navigate('InitialMenu')
+    try{
+      const {data, status} = await api.post('/user', dataUser)
+      if(status == 201){
+        data.produtor ? setUser({id:data.id, name: data.name, produtorId: data.produtor.id}) : setUser({id:data.id, name: data.name})
+        navigation.navigate('InitialMenu')
+        Alert.alert('Usuário criado')
+      }
+    }catch{
+      Alert.alert('Usuário já existe')
     }
   }
 
@@ -46,7 +50,3 @@ export default function Registration() {
     </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  
-});

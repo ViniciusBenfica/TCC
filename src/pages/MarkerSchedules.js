@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, Alert, TouchableOpacity, View } from 'react-native';
 import Container from "../components/Container"
 import SimpleButton from '../components/SimpleButton';
 import { api } from '../services/Api';
@@ -60,6 +60,8 @@ export default function MarkerSchedules({ route }) {
     }
 
     const { data } = await api.post('/schedules', { time: times, localId: route.params.Id })
+    Alert.alert('Ponto de coleta criado')
+
     navigation.navigate('InitialMenu')
   }
 
